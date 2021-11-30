@@ -1,4 +1,4 @@
-local Aiming = loadstring(game:HttpGet("https://raw.githubusercontent.com/freshlocaliar2mgiadawdpaklsd/LOL/main/KrabWareSilentAim1.txt?token=AUEO4SAZV7DPYATU2LV5NX3BURWHM"))()
+local Aiming = loadstring(game:HttpGet("https://raw.githubusercontent.com/freshlocaliar2mgiadawdpaklsd/LOL/main/KrabWareSilentAim1.txt"))()
 Aiming.TeamCheck(false)
 
 local Workspace = game:GetService("Workspace")
