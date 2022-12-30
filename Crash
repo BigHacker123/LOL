@@ -1,5 +1,5 @@
 if table.find(getgenv().Whitelisted,game.Players.LocalPlayer.UserId) then
-	getgenv().Whitelisted2 = table.find(getgenv().Alts,game.Players.LocalPlayer.UserId)
+	getgenv().Whitelisted2 = table.find(getgenv().Whitelisted,game.Players.LocalPlayer.UserId)
 else
 	return
 end
