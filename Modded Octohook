@@ -3776,16 +3776,31 @@ function library:create_settings_tab(menu)
 
     settings_misc:separator({text = "Client Sided Stuff",enabled=true})
 
-    settings_misc:toggle({text = 'Forcefield Character', flag = 'Forcefield', callback = function(bool)  
+    getgenv().Forecfield = false;
+    local Forcefield = settings_misc:toggle({text = 'Forcefield Character', flag = 'Forcefield', callback = function(bool)  
+        getgenv().Forecfield = bool
         for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
             if v:IsA("BasePart") then
-                if bool then
+                if getgenv().Forecfield then
                     v.Material = Enum.Material.ForceField
                 else
                     v.Material = Enum.Material.Plastic
                 end
             end
         end                   
+    end})
+
+    Forcefield:colorpicker({text = 'Risky Text Enabled', flag = 'theme_accent', default = library.themes.default["Risky Text Enabled"], callback = function(color)
+        for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+            if v:IsA("BasePart") then
+                local Color = v.Color
+                if getgenv().Forecfield then
+                    v.Color = color
+                else
+                    v.Color = Color
+                end
+            end
+        end    
     end})
 
 
