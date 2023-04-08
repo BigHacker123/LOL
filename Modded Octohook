@@ -3776,20 +3776,16 @@ function library:create_settings_tab(menu)
 
     settings_misc:separator({text = "Client Sided Stuff",enabled=true})
 
-    settings_misc:toggle({text = 'Forcefield Character', flag = 'Forcefield', callback = function(bool)        
-        if bool then
-            for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                if v:IsA("BasePart") then
+    settings_misc:toggle({text = 'Forcefield Character', flag = 'Forcefield', callback = function(bool)  
+        for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+            if v:IsA("BasePart") then
+                if bool then
                     v.Material = Enum.Material.ForceField
-                end
-            end
-        else
-            for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                if v:IsA("BasePart") then
+                else
                     v.Material = Enum.Material.Plastic
                 end
             end
-        end
+        end                   
     end})
 
 
