@@ -484,7 +484,7 @@ do
         
         function notification:set_message(message)
             self.objects.label.Text = message
-            self.objects.background.Size = udim2_new(0, self.objects.label.TextBounds.X + 14, 0, 17)
+            self.objects.background.Size = udim2_new(0, self.objects.label.TextBounds.X + 24, 0, 17)
         end
 
         function notification:remove()
