@@ -3452,16 +3452,13 @@ library.dropdown.objects.border_outer = library:create('outline', library.dropdo
 
 function library:create_settings_tab(menu)
     local tab = menu:tab({text = 'settings', order = 999})
+
     local settings_main = tab:section({text = 'main', side = 1})
+    local settings_colors = tab:section({text = 'colors', side = 1})
     local settings_config = tab:section({text = 'config', side = 2})
 
     settings_main:keybind({text = 'open / close', flag = 'menubind', default = Enum.KeyCode.End, callback = function(bool)
         menu:set_open(bool, 0.1)
-    end})
-
-    settings_main:colorpicker({text = 'accent', flag = 'theme_accent', default = library.themes.default.Accent, callback = function(color)
-        library.theme.Accent = color
-        library:update_theme()
     end})
 
     settings_main:toggle({text = 'keybind indicator', flag = 'keybind_indicator_enabled', callback = function(bool)
@@ -3494,6 +3491,129 @@ function library:create_settings_tab(menu)
     settings_main:button({text = 'rejoin', confirm = true, callback = function()
         game:GetService('TeleportService'):Teleport(game.PlaceId, game.Players.LocalPlayer)
     end})
+
+
+
+
+
+
+
+
+
+
+    settings_colors:colorpicker({text = 'accent', flag = 'theme_accent', default = library.themes.default.Accent, callback = function(color)
+        library.theme.Accent = color
+        library:update_theme()
+    end})
+
+    settings_colors:colorpicker({text = 'backround', flag = 'theme_accent', default = library.themes.default.Background, callback = function(color)
+        library.theme.Background = color
+        library:update_theme()
+    end})
+
+    settings_colors:colorpicker({text = 'Border', flag = 'theme_accent', default = library.themes.default.Border, callback = function(color)
+        library.theme.Border = color
+        library:update_theme()
+    end})
+
+    settings_colors:colorpicker({text = 'Border 1', flag = 'theme_accent', default = library.themes.default["Border 1"], callback = function(color)
+        library.theme["Border 1"] = color
+        library:update_theme()
+    end})
+
+    settings_colors:colorpicker({text = 'Border 2', flag = 'theme_accent', default = library.themes.default["Border 2"], callback = function(color)
+        library.theme["Border 2"] = color
+        library:update_theme()
+    end})
+
+    settings_colors:colorpicker({text = 'Border 3', flag = 'theme_accent', default = library.themes.default["Border 3"], callback = function(color)
+        library.theme["Border 3"] = color
+        library:update_theme()
+    end})
+
+    settings_colors:colorpicker({text = 'Primary Text', flag = 'theme_accent', default = library.themes.default["Primary Text"], callback = function(color)
+        library.theme["Primary Text"] = color
+        library:update_theme()
+    end})
+
+    settings_colors:colorpicker({text = 'Secondary Text', flag = 'theme_accent', default = library.themes.default["Secondary Text"], callback = function(color)
+        library.theme["Secondary Text"] = color
+        library:update_theme()
+    end})
+
+    settings_colors:colorpicker({text = 'Group Background', flag = 'theme_accent', default = library.themes.default["Group Background"], callback = function(color)
+        library.theme["Group Background"] = color
+        library:update_theme()
+    end})
+
+    settings_colors:colorpicker({text = 'Selected Tab', flag = 'theme_accent', default = library.themes.default["Selected Tab"], callback = function(color)
+        library.theme["Selected Tab"] = color
+        library:update_theme()
+    end})
+
+    settings_colors:colorpicker({text = 'Unselected Tab', flag = 'theme_accent', default = library.themes.default["Unselected Tab"], callback = function(color)
+        library.theme["Unselected Tab"] = color
+        library:update_theme()
+    end})
+
+    settings_colors:colorpicker({text = 'Selected Tab Text', flag = 'theme_accent', default = library.themes.default["Selected Tab Text"], callback = function(color)
+        library.theme["Selected Tab Text"] = color
+        library:update_theme()
+    end})
+
+    settings_colors:colorpicker({text = 'Unselected Tab Text', flag = 'theme_accent', default = library.themes.default["Unselected Tab Text"], callback = function(color)
+        library.theme["Unselected Tab Text"] = color
+        library:update_theme()
+    end})
+
+    settings_colors:colorpicker({text = 'Section Background', flag = 'theme_accent', default = library.themes.default["Section Background"], callback = function(color)
+        library.theme["Section Background"] = color
+        library:update_theme()
+    end})
+
+    settings_colors:colorpicker({text = 'Option Text 1', flag = 'theme_accent', default = library.themes.default["Option Text 1"], callback = function(color)
+        library.theme["Option Text 1"] = color
+        library:update_theme()
+    end})
+
+    settings_colors:colorpicker({text = 'Option Text 2', flag = 'theme_accent', default = library.themes.default["Option Text 2"], callback = function(color)
+        library.theme["Option Text 2"] = color
+        library:update_theme()
+    end})
+
+    settings_colors:colorpicker({text = 'Option Border 1', flag = 'theme_accent', default = library.themes.default["Option Border 1"], callback = function(color)
+        library.theme["Option Border 1"] = color
+        library:update_theme()
+    end})
+
+    settings_colors:colorpicker({text = 'Option Border 2', flag = 'theme_accent', default = library.themes.default["Option Border 2"], callback = function(color)
+        library.theme["Option Border 2"] = color
+        library:update_theme()
+    end})
+
+    settings_colors:colorpicker({text = 'Option Background', flag = 'theme_accent', default = library.themes.default["Option Background"], callback = function(color)
+        library.theme["Option Background"] = color
+        library:update_theme()
+    end})
+
+    settings_colors:colorpicker({text = 'Risky Text', flag = 'theme_accent', default = library.themes.default["Risky Text"], callback = function(color)
+        library.theme["Risky Text"] = color
+        library:update_theme()
+    end})
+
+    settings_colors:colorpicker({text = 'Risky Text Enabled', flag = 'theme_accent', default = library.themes.default["Risky Text Enabled"], callback = function(color)
+        library.theme["Risky Text Enabled"] = color
+        library:update_theme()
+    end})
+
+
+
+
+
+
+
+
+
 
 
     settings_config:dropdown({text = 'config', flag = 'configs_selected'})
