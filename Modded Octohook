@@ -3456,6 +3456,7 @@ function library:create_settings_tab(menu)
     local settings_main = tab:section({text = 'main', side = 1})
     local settings_colors = tab:section({text = 'colors', side = 1})
     local settings_config = tab:section({text = 'config', side = 2})
+    local settings_misc = tab:section({text = 'misc', side = 2})
 
     settings_main:keybind({text = 'open / close', flag = 'menubind', default = Enum.KeyCode.End, callback = function(bool)
         menu:set_open(bool, 0.1)
@@ -3463,33 +3464,6 @@ function library:create_settings_tab(menu)
 
     settings_main:toggle({text = 'keybind indicator', flag = 'keybind_indicator_enabled', callback = function(bool)
         library.keybind_indicator:set_enabled(bool)
-    end})
-
-    settings_main:button({text = 'join discord', callback = function()
-        local res = syn.request({
-            Url = 'http://127.0.0.1:6463/rpc?v=1',
-            Method = 'POST',
-            Headers = {
-                ['Content-Type'] = 'application/json',
-                Origin = 'https://discord.com'
-            },
-            Body = http:JSONEncode({
-                cmd = 'INVITE_BROWSER',
-                nonce = http:GenerateGUID(false),
-                args = {code = menu.DiscordInviteID}
-            })
-        })
-        if res.Success then
-            library:notification(library.cheatname .. ' | joined discord', 3);
-        end
-    end})
-
-    settings_main:button({text = 'copy javascript invite', callback = function()
-        setclipboard('Roblox.GameLauncher.joinGameInstance('..game.PlaceId..',"'..game.JobId..'")')
-    end})
-
-    settings_main:button({text = 'rejoin', confirm = true, callback = function()
-        game:GetService('TeleportService'):Teleport(game.PlaceId, game.Players.LocalPlayer)
     end})
 
 
@@ -3654,6 +3628,51 @@ function library:create_settings_tab(menu)
             end
         end
     end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    settings_misc:button({text = 'join discord', callback = function()
+        local res = syn.request({
+            Url = 'http://127.0.0.1:6463/rpc?v=1',
+            Method = 'POST',
+            Headers = {
+                ['Content-Type'] = 'application/json',
+                Origin = 'https://discord.com'
+            },
+            Body = http:JSONEncode({
+                cmd = 'INVITE_BROWSER',
+                nonce = http:GenerateGUID(false),
+                args = {code = menu.DiscordInviteID}
+            })
+        })
+        if res.Success then
+            library:notification(library.cheatname .. ' | joined discord', 3);
+        end
+    end})
+
+    settings_misc:button({text = 'rejoin', confirm = true, callback = function()
+        game:GetService('TeleportService'):Teleport(game.PlaceId, game.Players.LocalPlayer)
+    end})
+
+
+
+
+
+
+
+
+
 
     return tab, settings_main
 end
