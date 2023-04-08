@@ -3770,19 +3770,34 @@ function library:create_settings_tab(menu)
         module:Teleport(game.PlaceId)
     end})
 
-    settings_misc:button({text = 'crash roblox (THIS WILL CRASH YOU)', confirm = true, callback = function()
-        while true do
-            return print("CRASHING")
-        end
-    end})
-
     settings_misc:button({text = 'close roblox', confirm = true, callback = function()
         game:shutdown()
     end})
 
+    settings_misc:separator({text = "Client Sided Stuff",enabled=true})
 
-
-
+    settings_misc:toggle({text = 'Forcefield Character', flag = 'Forcefield', callback = function(bool)
+        local OldMaterial;
+        for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+            if v:IsA("BasePart") then
+                OldMaterial = v.Material
+            end
+        end
+        
+        if bool and OldMaterial then
+            for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                if v:IsA("BasePart") then
+                    v.Material = Enum.Material.ForceField
+                end
+            end
+        else
+            for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                if v:IsA("BasePart") then
+                    v.Material = OldMaterial
+                end
+            end
+        end
+    end})
 
 
 
