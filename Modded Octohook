@@ -500,7 +500,7 @@ do
             utility:tween(notification.objects.background, 'AnchorPoint', vector2_new(1,0), 0.15)
         end)
 
-        delay(0.50 + duration + 0.50, function()
+        delay(0.5 + duration + 0.15, function()
             notification:remove()
         end)
 
