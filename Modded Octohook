@@ -3776,15 +3776,8 @@ function library:create_settings_tab(menu)
 
     settings_misc:separator({text = "Client Sided Stuff",enabled=true})
 
-    settings_misc:toggle({text = 'Forcefield Character', flag = 'Forcefield', callback = function(bool)
-        local OldMaterial;
-        for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-            if v:IsA("BasePart") then
-                OldMaterial = v.Material
-            end
-        end
-        
-        if bool and OldMaterial then
+    settings_misc:toggle({text = 'Forcefield Character', flag = 'Forcefield', callback = function(bool)        
+        if bool then
             for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
                 if v:IsA("BasePart") then
                     v.Material = Enum.Material.ForceField
@@ -3793,7 +3786,7 @@ function library:create_settings_tab(menu)
         else
             for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
                 if v:IsA("BasePart") then
-                    v.Material = OldMaterial
+                    v.Material = Enum.Material.Plastic
                 end
             end
         end
